@@ -7,20 +7,28 @@ import { image_base_url } from "../utils/constants";
 const Movie = () => {
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(false)
 
   console.log(movieId);
 
   useEffect(() => {
+    setIsLoading(true)
+
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
       )
       .then((res) => {
-        console.log(res);
+        setIsLoading(false)
         setMovieInfo(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsLoading(false)
+        console.log(err)
+      });
   }, []);
+
+  if(isLoading) return <h2>Loading...</h2>
 
   return (
     <div className="movie">
