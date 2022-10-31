@@ -1,0 +1,33 @@
+.movie {
+
+
+}
+
+.movie > h2 {
+  color: #fff;
+  line-height: 32px;
+}
+
+.movie > h2 > a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.movie > h2 > a:active {
+  color: red;
+}
+
+.movie > h2 > a:visited {
+  color: purple;
+}
+
+
+ul {
+  margin: 24px 0;
+}
+
+ul > li {
+  list-style-type:disc;
+  color: #fff;
+  margin-left: 42px;
+}

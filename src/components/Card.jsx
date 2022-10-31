@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/card.css';
+import { image_base_url } from '../utils/constants';
 
 const Card = ({ image, title, description, popularity, release, id }) => {
   
-  console.log(`https://image.tmdb.org/t/p/original/${image}`);
   const getMovieImage = () => {
     if (image) {
-      return `https://image.tmdb.org/t/p/original/${image}` 
+      return `${image_base_url}${image}` 
     }
     return `https://nasa-movies.netlify.app/image/gallery.png`
    }
